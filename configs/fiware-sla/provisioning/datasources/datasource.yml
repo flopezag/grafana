@@ -18,13 +18,13 @@ datasources:
     # <int> org id. will default to orgId 1 if not specified
     orgId: 1
     # <string> url
-    url: a-specific-url
+    url: http://130.206.84.57:8086
     # <string> database password, if used
-    password: other-super-secret
+    password: qydcos
     # <string> database user, if used
-    user: a-user
+    user: monasca
     # <string> database name, if used
-    database: a-db
+    database: mon
     # <bool> enable/disable with credentials headers
     withCredentials: false
     # <bool> mark as default datasource. Max one per org

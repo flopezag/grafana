@@ -1,32 +1,5 @@
-# use image if you have a dedicated build step:
-#   docker build --rm --build-arg BRANCH=develop -t docker-sla-ge .
-# image: docker-sla-ge
-# use build path to Dockerfile if docker-compose should build the image
-#services:
-#    grafana:
-#        environment:
-#            - GF_AUTH_ANONYMOUS_ENABLED=true
-#            - GF_SERVER_DOMAIN=fiware-sla.lab.fiware.org
-#            - GF_SERVER_ROOT_URL=https://fiware-sla.lab.fiware.org
-#            - GF_SERVER_ROUTER_LOGGING=false
-#            - GF_DATABASE_PATH=grafana.db
-#            - GF_SECURITY_ADMIN_PASSWORD=secret
-#            # - GF_SECURITY_ADMIN_PASSWORD__FILE=/run/secrets/grafana_admin_password
-#        image: grafana/grafana:latest
-#        logging:
-#            options:
-#                max-size: 1m
-#        restart: unless-stopped
-#        volumes:
-#            - ./home/ubuntu/showcase/grafana/:/var/lib/grafana/
-#            - ./static/datasources/:/etc/grafana/provisioning/datasources/
-#            - ./static/dashboard/:/etc/grafana/provisioning/dashboards/
-#
-#
-# Version: https://github.com/vegasbrianc/prometheus
-
-
 version: '3'
+
 volumes:
     grafana_data: {}
 
@@ -38,7 +11,7 @@ services:
           - 3001:3000
         volumes:
           - grafana_data:/var/lib/grafana
-          - ./${SERVICE}/provisioning/:/etc/grafana/provisioning/
+          - ./configs/${SERVICE}/provisioning/:/etc/grafana/provisioning/
         env_file:
-          - ./configs/config.${SERVICE}
+          - ./configs/config.grafana
         restart: always
