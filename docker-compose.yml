@@ -1,8 +1,5 @@
 version: '3'
 
-volumes:
-    grafana_data: {}
-
 services:
    grafana:
         image: grafana/grafana
@@ -10,7 +7,7 @@ services:
         ports:
           - 3001:3000
         volumes:
-          - grafana_data:/var/lib/grafana
+          - ./grafana_data:/var/lib/grafana
           - ./configs/${SERVICE}/provisioning/:/etc/grafana/provisioning/
         env_file:
           - ./configs/config.grafana

@@ -40,7 +40,7 @@ please configure the proper information in the following files:
 In order to execute the composer just run:
 
 ```console
-docker-compose up
+docker-compose up -d
 ```
 
 To stop the Gradana compose instance just run:
@@ -48,6 +48,9 @@ To stop the Gradana compose instance just run:
 ```console
 docker-compose down
 ```
+
+Keep in mind that the docker-compose was deployed with a local volume _grafana_data_, therefore keep in mind that this 
+directory will stay there after the down operation, at least that you manually delete it.
 
 ## License
 

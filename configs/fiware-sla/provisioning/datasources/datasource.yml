@@ -19,8 +19,6 @@ datasources:
     orgId: 1
     # <string> url
     url: a-specific-url
-    # <string> database password, if used
-    password: other-super-secret
     # <string> database user, if used
     user: a-user
     # <string> database name, if used
@@ -32,3 +30,7 @@ datasources:
     version: 1
     # <bool> allow users to edit datasources from the UI.
     editable: false
+    # <string> json object of data that will be encrypted.
+    secureJsonData:
+      # <string> database password, if used
+      password: other-super-secret
